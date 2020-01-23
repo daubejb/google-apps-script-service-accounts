@@ -26,7 +26,7 @@ function onFormSubmit() {
   var animal = responses.animal;
   var user = responses.user;
   
-  // copy the presentation template and name it 'user animal'
+  // copy the presentation template, name it 'user animal', and move it to the destination folder
   var newPresentationId = copyTemplate(user, animal);
   
   // get textbox and image page elements objects to replace content with user form responses
@@ -54,7 +54,7 @@ function getUserResponse(response) {
 
 function copyTemplate(user, animal) {
   var newPresentationName = user + ' ' + animal;
-  return DriveApp.getFileById(PARAMS.slidesTemplateId).makeCopy(newPresentationName).getId();
+  return DriveApp.getFileById(PARAMS.slidesTemplateId).makeCopy(newPresentationName, DriveApp.getFolderById(PARAMS.destinationFolderId)).getId();
 }
 
 function getPageElements(id) {

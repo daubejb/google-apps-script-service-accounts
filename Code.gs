@@ -13,10 +13,12 @@ var PARAMS = {
   }
 }
 
-// triggered when a user submits the form located @ https://docs.google.com/forms/d/e/1FAIpQLSes3sXxNeuf2gxlcrv0Alh8M_qoC5cusi47-G-lDva5zxrHIw/viewform
+// triggered when a user submits the form located @
+// https://docs.google.com/forms/d/e/1FAIpQLSes3sXxNeuf2gxlcrv0Alh8M_qoC5cusi47-G-lDva5zxrHIw/viewform
 function onFormSubmit() {
   
-  // get the last submitted form response object, see https://developers.google.com/apps-script/reference/forms/form-response for the FormResponse Class description
+  // get the last submitted form response object
+  // see https://developers.google.com/apps-script/reference/forms/form-response for the FormResponse Class description
   var lastFormResponse = getLastFormResponse();
   
   // get the specific user email addreess and their favorite animal from their form response
@@ -27,7 +29,8 @@ function onFormSubmit() {
   // copy the presentation template and name it 'user animal'
   var newPresentationId = copyTemplate(user, animal);
   
-  // gets the textbox and image page elements objects so they can be replaced with the user form responses, see https://developers.google.com/apps-script/reference/slides/page-element for the PageElement Class description
+  // get textbox and image page elements objects to replace content with user form responses
+  // see https://developers.google.com/apps-script/reference/slides/page-element for the PageElement Class description
   var elements = getPageElements(newPresentationId);
   
   // replace the ~animal~ placeholder within the template with the users favorite animal
